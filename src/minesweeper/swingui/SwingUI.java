@@ -25,6 +25,13 @@ import minesweeper.Minesweeper;
 import minesweeper.core.GameState;
 import minesweeper.Settings;
 import minesweeper.UserInterface;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Dimension;
 
 public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		MouseListener {
@@ -170,6 +177,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		saveMenuItem = new javax.swing.JMenuItem();
 		loadMenuItem = new javax.swing.JMenuItem();
 		helpMenuItem = new javax.swing.JMenuItem();
+		helpMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, 0));
 		jSeparator1 = new javax.swing.JSeparator();
 		customMenuItem = new javax.swing.JRadioButtonMenuItem();
 		beginnerMenuItem = new javax.swing.JRadioButtonMenuItem();
@@ -247,6 +255,18 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		jPanel4.add(newButton);
 
 		infoPanel.add(jPanel4, java.awt.BorderLayout.CENTER);
+		
+		label = new JLabel();
+		label.setText("888");
+		label.setPreferredSize(new Dimension(50, 30));
+		label.setOpaque(true);
+		label.setMinimumSize(new Dimension(50, 30));
+		label.setMaximumSize(new Dimension(50, 30));
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.RED);
+		label.setFont(new Font("DialogInput", Font.BOLD, 24));
+		label.setBackground(Color.BLACK);
+		jPanel4.add(label);
 
 		topPanel.add(infoPanel, java.awt.BorderLayout.CENTER);
 
@@ -297,6 +317,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		gameMenu.add(helpMenuItem);
 
 		helpMenuItem.setMnemonic('h');
+
 		helpMenuItem.setText("Help");
 		helpMenuItem.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -511,4 +532,5 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 	private javax.swing.JMenuItem helpMenuItem;
 	private javax.swing.JLabel timeLabel;
 	private javax.swing.JPanel topPanel;
+	private JLabel label;
 }
