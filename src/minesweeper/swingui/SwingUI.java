@@ -109,8 +109,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		}
 
 		if (field.getState() == GameState.FAILED) {
-			JOptionPane.showMessageDialog(null, "Game over.",
-					"Warning message", JOptionPane.ERROR_MESSAGE);
+			
 			for (int row = 0; row < field.getRowCount(); row++) {
 				for (int column = 0; column < field.getColumnCount(); column++) {
 					if (field.getTile(row, column) instanceof Mine) {
@@ -118,6 +117,9 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 					}
 				}
 			}
+			update();
+			JOptionPane.showMessageDialog(null, "BOOOM.",
+					"Warning message", JOptionPane.ERROR_MESSAGE);
 		}
 		if (field.getState() == GameState.SOLVED) {
 			JOptionPane.showMessageDialog(null, "You have won your game.",
