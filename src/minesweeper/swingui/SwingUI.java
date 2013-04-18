@@ -169,6 +169,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		loadMenuItem = new javax.swing.JMenuItem();
 		helpMenuItem = new javax.swing.JMenuItem();
 		jSeparator1 = new javax.swing.JSeparator();
+		customMenuItem = new javax.swing.JRadioButtonMenuItem();
 		beginnerMenuItem = new javax.swing.JRadioButtonMenuItem();
 		intermediateMenuItem = new javax.swing.JRadioButtonMenuItem();
 		expertMenuItem = new javax.swing.JRadioButtonMenuItem();
@@ -304,6 +305,17 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 
 		gameMenu.add(jSeparator1);
 
+		buttonGroup.add(customMenuItem);
+		customMenuItem.setMnemonic('c');
+		customMenuItem.setText("Custom");
+		customMenuItem.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				customMenuItemActionPerformed(evt);
+			}
+		});
+
+		gameMenu.add(customMenuItem);
+		
 		buttonGroup.add(beginnerMenuItem);
 		beginnerMenuItem.setMnemonic('b');
 		beginnerMenuItem.setText("Beginner");
@@ -386,6 +398,10 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 		Minesweeper.getInstance().setSetting(Settings.BEGINNER);
 		Minesweeper.getInstance().newGame();
 	}// GEN-LAST:event_beginnerMenuItemActionPerformed
+	
+	private void customMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_beginnerMenuItemActionPerformed
+		new CustomSizeDialog(this, true).setVisible(true);
+	}
 
 	private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_exitMenuItemActionPerformed
 		System.exit(0);
@@ -470,6 +486,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface,
 	private javax.swing.JRadioButtonMenuItem beginnerMenuItem;
 	private javax.swing.JMenuItem bestTimesMenuItem;
 	private javax.swing.ButtonGroup buttonGroup;
+	private javax.swing.JRadioButtonMenuItem customMenuItem;
 	private javax.swing.JPanel contentPanel;
 	private javax.swing.JMenuItem exitMenuItem;
 	private javax.swing.JRadioButtonMenuItem expertMenuItem;
